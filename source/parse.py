@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import pycurl
-import re
 from StringIO import StringIO
 
 #generate urls
