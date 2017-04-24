@@ -6,7 +6,7 @@ from StringIO import StringIO
 
 #generate urls
 #TODO: Maybe make this generic?
-pages = 1
+pages = 6
 decks = []
 for page in range(1, pages+1):
     pageUri = "http://tappedout.net/users/commandersbrew/mtg-decks/?&p={0}&page={0}".format(page)
@@ -43,5 +43,14 @@ for deck in range(0, len(uniqueDecks)):
     cards= cards + deckCards
     print("Parsed deck {0}".format(uniqueDecks[deck]))
 print("Parsed {0} decks and found {1} cards".format(len(uniqueDecks), len(cards)))
+totals = {"CardName":0}
+for card in range(0, len(cards)):
+    cardName = cards[card].split("1 ")[1]
+    print(cardName)
+    if cardName in totals:
+        totals[cardName] = totals[cardName] + 1
+    else:
+        totals[cardName] = 1
 
-#TODO: Aggregate
+for key, value in totals.items():
+    print("{0} {1}".format(value, key))
