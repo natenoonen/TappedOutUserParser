@@ -6,8 +6,8 @@ from StringIO import StringIO
 
 #generate urls
 #TODO: Maybe make this generic?
-pages = 6
-userName = "CommandersBrew"
+pages = 3
+userName = "CommandCast"
 decks = []
 for page in range(1, pages+1):
     pageUri = "http://tappedout.net/users/{1}/mtg-decks/?&p={0}&page={0}".format(page, userName)
