@@ -1,1 +1,1 @@
-1. Ordering, speed increases, writeup
+1. Ordering, speed increases

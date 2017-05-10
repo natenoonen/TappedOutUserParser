@@ -1,7 +1,28 @@
 # TappedOutUserParser
-Basic parser for TappedOut. Used to get deck stats for single users (content creators)
+Basic parser for TappedOut. Used to get deck stats for single users.
 
-Results at https://docs.google.com/spreadsheets/d/1uk5Z9JwUqPrD5lXJkX2m_0kfE-U0uiUxmXEw-pFdh0M/edit?usp=sharing
+## Usage
+
+1. Install Python (see https://www.python.org/about/gettingstarted/)
+2. Copy the script parse.py to your local machine (or clone the repository)
+3. Run it with your options
+
+python parse.py -p 7 -u "CommandersBrew" > commandersbrew.csv
+
+## Options
+
+-u, --user: The user to be parsed (get from tapped out at http://tappedout.net/users/CommandersBrew).  For this URL, the user is CommandCast
+-p, --pages: The number of pages.  Go to the user's tapped out page and click decks.  See how many pages are listed.
+http://tappedout.net/users/commandersbrew/mtg-decks/.  For this URL, there are 7 pages
+-v, --verbose: The script can take awhile to run.  If you want to debug it or see what it's doing, set -v to true.  Verbose defaults to false.
+
+## Results
+
+Results in CSV form are in the results directory.
+
+## Help!
+
+No guarantees but you can comment on this repo or tweet at me.  https://twitter.com/Devil_Bug
 
 # License
 
