@@ -12,8 +12,10 @@ python parse.py -p 7 -u "CommandersBrew" > commandersbrew.csv
 ## Options
 
 -u, --user: The user to be parsed (get from tapped out at http://tappedout.net/users/CommandersBrew).  For this URL, the user is CommandCast
+
 -p, --pages: The number of pages.  Go to the user's tapped out page and click decks.  See how many pages are listed.
 http://tappedout.net/users/commandersbrew/mtg-decks/.  For this URL, there are 7 pages
+
 -v, --verbose: The script can take awhile to run.  If you want to debug it or see what it's doing, set -v to true.  Verbose defaults to false.
 
 ## Results
