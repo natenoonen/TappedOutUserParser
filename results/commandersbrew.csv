@@ -40,11 +40,11 @@
 10,Sandstone Oracle
 1,Skarrg the Rage Pits
 1,Fool's Demise
-1,Cao Cao, Lord of Wei
+1,Cao Cao Lord of Wei
 1,Bonded Fetch
 1,Elvish Bard
 1,Molten Disaster
-1,Rishkar, Peema Renegade
+1,Rishkar Peema Renegade
 2,Slumbering Dragon
 1,Syndicate Trafficker
 3,Day of Judgment
@@ -1305,7 +1305,7 @@
 3,Gatekeeper of Malakir
 2,Wall of Denial
 17,Mulldrifter
-3,Purphoros, God of the Forge
+3,Purphoros God of the Forge
 1,Instill Energy
 2,Myojin of Cleansing Fire
 1,Cytoplast Root-Kin
@@ -1469,7 +1469,7 @@
 1,Argivian Restoration
 3,Protective Bubble
 1,Prowler's Helm
-2,Basandra, Battle Seraph
+2,Basandra Battle Seraph
 1,Hellhole Flailer
 4,Puppet Strings
 1,Dack's Duplicate
@@ -1496,7 +1496,7 @@
 10,Angel of Serenity
 2,Alpha Brawl
 1,Jwari Shapeshifter
-1,Kraum, Ludevic's Opus
+1,Kraum Ludevic's Opus
 1,Vessel of Endless Rest
 1,Veteran's Armaments
 2,Quicken
@@ -1523,7 +1523,7 @@
 1,Gravitational Shift
 1,Ballyrush Banneret
 5,Brawn
-1,Ajani, Caller of the Pride
+1,Ajani Caller of the Pride
 2,Conundrum Sphinx
 1,Respite
 2,Telepathy
@@ -1532,7 +1532,7 @@
 2,Illusionist's Gambit
 1,Order / Chaos
 7,Smothering Abomination
-6,Jarad, Golgari Lich Lord
+6,Jarad Golgari Lich Lord
 5,Captain of the Watch
 5,Trash for Treasure
 2,Expropriate
@@ -1568,7 +1568,7 @@
 1,Sandsower
 1,Mages' Contest
 1,Chief of the Scale
-2,Baru, Fist of Krosa
+2,Baru Fist of Krosa
 3,Stonehewer Giant
 3,Quest for Pure Flame
 1,Latulla's Orders
@@ -1580,9 +1580,9 @@
 1,Solitary Hunter
 1,Quicksilver Fountain
 3,Nyx-Fleece Ram
-1,Vitu-Ghazi, the City-Tree
+1,Vitu-Ghazi the City-Tree
 2,Snakeform
-1,Trostani, Selesnya's Voice
+1,Trostani Selesnya's Voice
 1,Somberwald Alpha
 1,Crab Umbra
 1,Bladed Pinions
@@ -1648,7 +1648,7 @@
 1,Rune-Scarred Demon
 6,Evangel of Heliod
 5,Decree of Pain
-1,Ghave, Guru of Spores
+1,Ghave Guru of Spores
 3,Liliana's Caress
 8,Reclamation Sage
 1,Civilized Scholar
@@ -1658,15 +1658,15 @@
 3,Chain Reaction
 1,Herald of War
 5,Whispering Madness
-2,Bosh, Iron Golem
+2,Bosh Iron Golem
 1,In the Web of War
 1,Spreading Seas
 1,Underhanded Designs
 1,Ichor Rats
-1,Grenzo, Havoc Raiser
+1,Grenzo Havoc Raiser
 1,Brainspoil
 3,Chaos Warp
-1,Ludevic, Necro-Alchemist
+1,Ludevic Necro-Alchemist
 1,Angelic Gift
 1,Shimian Specter
 1,Vengeful Dreams
@@ -1715,10 +1715,10 @@
 1,Crown of Doom
 1,Grudge Keeper
 1,Black Vise
-2,Rayne, Academy Chancellor
+2,Rayne Academy Chancellor
 1,Razorfin Hunter
 2,Sentinel of the Eternal Watch
-2,Urborg, Tomb of Yawgmoth
+2,Urborg Tomb of Yawgmoth
 1,Murasa Pyromancer
 3,Woodland Stream
 3,Jwar Isle Refuge
@@ -1737,7 +1737,7 @@
 1,Soulless One
 1,Mighty Emergence
 4,Vengeful Rebirth
-1,Rakdos, Lord of Riots
+1,Rakdos Lord of Riots
 1,Inkfathom Divers
 1,Grisly Spectacle
 1,Onslaught
@@ -1777,7 +1777,7 @@
 1,Long-Forgotten Gohei
 1,Militia's Pride
 1,Sandsteppe Outcast
-2,Radiant, Archangel
+2,Radiant Archangel
 2,Willbreaker
 1,Immaculate Magistrate
 2,Bloodflow Connoisseur
@@ -1811,21 +1811,21 @@
 1,Tidal Force
 2,Sovereigns of Lost Alara
 5,Mind Control
-3,Lazav, Dimir Mastermind
+3,Lazav Dimir Mastermind
 1,Ninth Bridge Patrol
 1,Skeleton Ship
 1,Kruin Outlaw
 1,Mass Mutiny
 2,Spectral Procession
 8,Oblivion Ring
-4,Endrek Sahr, Master Breeder
+4,Endrek Sahr Master Breeder
 1,Eater of the Dead
 1,Razorfoot Griffin
 5,Steel of the Godhead
 4,Geist-Honored Monk
 1,Urza's Rage
 1,Arcbound Overseer
-1,Liliana, Heretical Healer
+1,Liliana Heretical Healer
 1,Sorceress Queen
 1,Talisman of Dominance
 1,Myr Welder
@@ -1852,7 +1852,7 @@
 4,Chancellor of the Forge
 1,Tolarian Winds
 9,Grim Haruspex
-1,Ulamog, the Ceaseless Hunger
+1,Ulamog the Ceaseless Hunger
 2,Scholar of Athreos
 1,Master of Predicaments
 3,Merfolk Looter
@@ -1893,7 +1893,7 @@
 2,Odunos River Trawler
 7,Brainstorm
 1,Whir of Invention
-2,Slobad, Goblin Tinkerer
+2,Slobad Goblin Tinkerer
 1,Abzan Falconer
 1,Mwonvuli Beast Tracker
 2,Verdeloth the Ancient
@@ -1924,7 +1924,7 @@
 1,Boggart Shenanigans
 2,Wizened Snitches
 2,War Tax
-1,Oona, Queen of the Fae
+1,Oona Queen of the Fae
 2,Joraga Treespeaker
 1,Hooded Assassin
 1,Archweaver
@@ -1941,7 +1941,7 @@
 4,Graypelt Refuge
 1,Time Spiral
 11,Plea for Guidance
-1,Atarka, World Render
+1,Atarka World Render
 2,Steam Augury
 4,Citadel Siege
 1,Sinuous Vermin
@@ -2022,7 +2022,7 @@
 1,Scatter the Seeds
 1,Gem of Becoming
 1,Villainous Wealth
-1,Tymaret, the Murder King
+1,Tymaret the Murder King
 1,Ward of Bones
 1,Accelerate
 4,Magewright's Stone
@@ -2057,7 +2057,7 @@
 2,Sturmgeist
 3,Arachnogenesis
 1,Righteous Cause
-2,Polukranos, World Eater
+2,Polukranos World Eater
 8,Cyclonic Rift
 2,Obelisk of Bant
 1,Sphinx Summoner
@@ -2072,7 +2072,7 @@
 1,Mind Unbound
 2,Two-Headed Dragon
 1,Legacy Weapon
-1,Dromoka, the Eternal
+1,Dromoka the Eternal
 2,Dross Scorpion
 3,Myr Retriever
 1,Emrakul's Evangel
@@ -2105,7 +2105,7 @@
 1,Steward of Valeron
 1,Nemesis Mask
 3,Hooded Hydra
-1,Munda, Ambush Leader
+1,Munda Ambush Leader
 2,Magister of Worth
 1,Overburden
 1,Magmatic Force
@@ -2116,7 +2116,7 @@
 6,Thoughtrender Lamia
 2,Inundate
 4,Sunblast Angel
-1,Anowon, the Ruin Sage
+1,Anowon the Ruin Sage
 2,Adarkar Valkyrie
 2,Impelled Giant
 3,Sword of Vengeance
@@ -2126,7 +2126,7 @@
 1,Hellion Eruption
 1,Voracious Hatchling
 1,Krosan Verge
-2,Titania, Protector of Argoth
+2,Titania Protector of Argoth
 1,Roar of Challenge
 5,Sunscorch Regent
 1,Vial Smasher the Fierce
@@ -2146,7 +2146,7 @@
 2,Gatecreeper Vine
 1,Dungrove Elder
 7,Ajani's Presence
-2,Derevi, Empyrial Tactician
+2,Derevi Empyrial Tactician
 5,Clan Defiance
 2,Countermand
 5,Stuffy Doll
@@ -2165,7 +2165,7 @@
 1,Blood Bairn
 1,Spectral Guardian
 1,Swarm of Bloodflies
-1,Garruk, Primal Hunter
+1,Garruk Primal Hunter
 1,Shriekhorn
 4,Nomads' Assembly
 2,Honden of Infinite Rage
