@@ -31,7 +31,7 @@ def main(argv):
     if pages < 1 or pages > 20 or not userName:
         print 'Usage: parse.py -p <pages> -u <user> -v <verbose>'
         sys.exit()
-        
+
     # This is the main code.  Everything above this is just parsing user input.
     decks = []
     for page in range(1, pages+1):
@@ -74,15 +74,17 @@ def main(argv):
             c.perform()
             c.close()
             body = buffer.getvalue()
-            # each affiliate link uses hidden inputs.  Here we find the first affiliate link on the page
-            garbage = body.split("<input type=\"hidden\" name=\"c\" value=\"")
-            # take the text after the affiliate link but before the next end quote (the first split) and then split the
-            # cards by ||.  If the script breaks, it's most likely this code.  View page source on TappedOut and find the new
-            # way they generate affiliate links.  Update parsing logic.
-            deckCards = garbage[1].split("\"")[0].split("||")
-            cards= cards + deckCards
-            if verbose:
-                print("Parsed deck {0}".format(uniqueDecks[deck]))
+            #verify it's an EDH deck
+            if "/mtg-deck-builder/edh/" in body:
+                # each affiliate link uses hidden inputs.  Here we find the first affiliate link on the page
+                garbage = body.split("<input type=\"hidden\" name=\"c\" value=\"")
+                # take the text after the affiliate link but before the next end quote (the first split) and then split the
+                # cards by ||.  If the script breaks, it's most likely this code.  View page source on TappedOut and find the new
+                # way they generate affiliate links.  Update parsing logic.
+                deckCards = garbage[1].split("\"")[0].split("||")
+                cards= cards + deckCards
+                if verbose:
+                    print("Parsed deck {0}".format(uniqueDecks[deck]))
         except:
             print("Unexpected error:", sys.exc_info()[0])
     if verbose:
@@ -90,14 +92,19 @@ def main(argv):
     totals = {}
     # Now that we've parsed all the decks and found all the cards, clean and aggregate
     for card in range(0, len(cards)):
-        cardName = cards[card].split("1 ")[1]
-        # Because we're parsing HTML, they've used HTML codes for single quote.  Clean them up.
-        cardName = cardName.replace("&#39;", "'")
-        if cardName in totals:
-            totals[cardName] = totals[cardName] + 1
-        else:
-            totals[cardName] = 1
-
+        try:
+            if "1 " in cards[card]:
+                cardName = cards[card].split("1 ")[1]
+            # Because we're parsing HTML, they've used HTML codes for single quote.  Clean them up.
+            cardName = cardName.replace("&#39;", "'")
+            if cardName:
+                if cardName in totals:
+                    totals[cardName] = totals[cardName] + 1
+                else:
+                    totals[cardName] = 1
+        except:
+            print("Error parsing card {0}".format(cardName))
+            print(sys.exc_info()[0])
     # print aggregated results
     for key, value in totals.items():
         print("{0},{1}".format(value, key))
