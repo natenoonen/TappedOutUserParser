@@ -31,8 +31,11 @@ def main(argv):
     if pages < 1 or pages > 20 or not userName:
         print 'Usage: parse.py -p <pages> -u <user> -v <verbose>'
         sys.exit()
+        
+    # This is the main code.  Everything above this is just parsing user input.
     decks = []
     for page in range(1, pages+1):
+        # generate link for the user's first page.  if the script breaks, turn on verbose mode and verify this page loads.
         pageUri = "http://tappedout.net/users/{1}/mtg-decks/?&p={0}&page={0}".format(page, userName)
         if verbose:
             print(pageUri)
@@ -43,19 +46,24 @@ def main(argv):
         c.perform()
         c.close()
         body = buffer.getvalue()
+        # split the page contents by double quote as all URIs in the page will be quoted
         items = body.split("\"")
         for parsedItem in range(0, len(items)):
             item = items[parsedItem]
+            # each deck link for a user will contain "mtg-decks/.  We found a deck link
             if "mtg-decks/" in item:
                 decks.append(item)
         if verbose:
             print("Downloaded and parsed page {0}".format(page))
+    # because we overcollected deck links, use the list(set()) function to generate unique decks
     uniqueDecks = list(set(decks))
+    # clear out broken links which also include mtg-decks
     uniqueDecks.remove("/mtg-decks/search/")
     uniqueDecks.remove("/accounts/login/?next=/users/{0}/mtg-decks/".format(userName))
     uniqueDecks.remove("/accounts/register/?next=/users/{0}/mtg-decks/".format(userName))
 
     cards=[]
+    # now we've filtered for unique decks for the user.  let's parse them individually
     for deck in range(0, len(uniqueDecks)):
         try:
             pageUri = "http://tappedout.net{0}".format(uniqueDecks[deck])
@@ -66,7 +74,11 @@ def main(argv):
             c.perform()
             c.close()
             body = buffer.getvalue()
+            # each affiliate link uses hidden inputs.  Here we find the first affiliate link on the page
             garbage = body.split("<input type=\"hidden\" name=\"c\" value=\"")
+            # take the text after the affiliate link but before the next end quote (the first split) and then split the
+            # cards by ||.  If the script breaks, it's most likely this code.  View page source on TappedOut and find the new
+            # way they generate affiliate links.  Update parsing logic.
             deckCards = garbage[1].split("\"")[0].split("||")
             cards= cards + deckCards
             if verbose:
@@ -76,14 +88,17 @@ def main(argv):
     if verbose:
         print("Parsed {0} decks and found {1} cards".format(len(uniqueDecks), len(cards)))
     totals = {}
+    # Now that we've parsed all the decks and found all the cards, clean and aggregate
     for card in range(0, len(cards)):
         cardName = cards[card].split("1 ")[1]
+        # Because we're parsing HTML, they've used HTML codes for single quote.  Clean them up.
         cardName = cardName.replace("&#39;", "'")
         if cardName in totals:
             totals[cardName] = totals[cardName] + 1
         else:
             totals[cardName] = 1
 
+    # print aggregated results
     for key, value in totals.items():
         print("{0},{1}".format(value, key))
 
