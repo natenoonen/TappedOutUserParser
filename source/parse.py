@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-import pycurl
+from urllib.request import urlopen
 import sys
 import getopt
-from StringIO import StringIO
+from io import StringIO
 
 def str2bool(v):
   return v.lower() in ("yes", "true", "t", "1")
@@ -16,11 +16,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hp:u:v:",["pages=","user=", "verbose="])
     except getopt.GetoptError:
-        print 'parse.py -p <pages> -u <user> -v <verbose>'
+        print("parse.py -p <pages> -u <user> -v <verbose>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'parse.py -p <pages> -u <user> -v <verbose>'
+            print("parse.py -p <pages> -u <user> -v <verbose>")
             sys.exit()
         elif opt in ("-p", "--pages"):
             pages = int(arg)
@@ -29,7 +29,7 @@ def main(argv):
         elif opt in ("-v", "--verbose"):
             verbose = str2bool(arg)
     if pages < 1 or pages > 20 or not userName:
-        print 'Usage: parse.py -p <pages> -u <user> -v <verbose>'
+        print ("Usage: parse.py -p <pages> -u <user> -v <verbose>")
         sys.exit()
 
     # This is the main code.  Everything above this is just parsing user input.
@@ -39,13 +39,8 @@ def main(argv):
         pageUri = "http://tappedout.net/users/{1}/mtg-decks/?&p={0}&page={0}".format(page, userName)
         if verbose:
             print(pageUri)
-        buffer = StringIO()
-        c = pycurl.Curl()
-        c.setopt(c.URL, pageUri)
-        c.setopt(c.WRITEDATA, buffer)
-        c.perform()
-        c.close()
-        body = buffer.getvalue()
+        response = urlopen(pageUri)
+        body = response.read().decode()
         # split the page contents by double quote as all URIs in the page will be quoted
         items = body.split("\"")
         for parsedItem in range(0, len(items)):
@@ -67,13 +62,8 @@ def main(argv):
     for deck in range(0, len(uniqueDecks)):
         try:
             pageUri = "http://tappedout.net{0}".format(uniqueDecks[deck])
-            buffer = StringIO()
-            c = pycurl.Curl()
-            c.setopt(c.URL, pageUri)
-            c.setopt(c.WRITEDATA, buffer)
-            c.perform()
-            c.close()
-            body = buffer.getvalue()
+            response = urlopen(pageUri)
+            body = response.read().decode()
             #verify it's an EDH deck
             if "/mtg-deck-builder/edh/" in body:
                 # each affiliate link uses hidden inputs.  Here we find the first affiliate link on the page
