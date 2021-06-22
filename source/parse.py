@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from urllib.request import urlopen
+import requests
 import sys
 import getopt
 from io import StringIO
@@ -35,21 +35,26 @@ def main(argv):
     # This is the main code.  Everything above this is just parsing user input.
     decks = []
     for page in range(1, pages+1):
-        # generate link for the user's first page.  if the script breaks, turn on verbose mode and verify this page loads.
-        pageUri = "http://tappedout.net/users/{1}/mtg-decks/?&p={0}&page={0}".format(page, userName)
-        if verbose:
-            print(pageUri)
-        response = urlopen(pageUri)
-        body = response.read().decode()
-        # split the page contents by double quote as all URIs in the page will be quoted
-        items = body.split("\"")
-        for parsedItem in range(0, len(items)):
-            item = items[parsedItem]
-            # each deck link for a user will contain "mtg-decks/.  We found a deck link
-            if "mtg-decks/" in item:
-                decks.append(item)
-        if verbose:
-            print("Downloaded and parsed page {0}".format(page))
+        try:
+            # generate link for the user's first page.  if the script breaks, turn on verbose mode and verify this page loads.
+            pageUri = "https://tappedout.net/users/{1}/mtg-decks/?&p={0}&page={0}".format(page, userName)
+            if verbose:
+                print(pageUri)
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36'}
+            r = requests.Session()
+            response = r.get(pageUri, headers=headers)
+            body = response.content.decode()
+            # split the page contents by double quote as all URIs in the page will be quoted
+            items = body.split("\"")
+            for parsedItem in range(0, len(items)):
+                item = items[parsedItem]
+                # each deck link for a user will contain "mtg-decks/.  We found a deck link
+                if "mtg-decks/" in item:
+                    decks.append(item)
+            if verbose:
+                print("Downloaded and parsed page {0}".format(page))
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
     # because we overcollected deck links, use the list(set()) function to generate unique decks
     uniqueDecks = list(set(decks))
     # clear out broken links which also include mtg-decks
@@ -61,9 +66,12 @@ def main(argv):
     # now we've filtered for unique decks for the user.  let's parse them individually
     for deck in range(0, len(uniqueDecks)):
         try:
-            pageUri = "http://tappedout.net{0}".format(uniqueDecks[deck])
-            response = urlopen(pageUri)
-            body = response.read().decode()
+            pageUri = "https://tappedout.net{0}".format(uniqueDecks[deck])
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36'}
+            r = requests.Session()
+            response = r.get(pageUri, headers=headers)
+            body = response.content.decode()
             #verify it's an EDH deck
             if "/mtg-deck-builder/edh/" in body:
                 # each affiliate link uses hidden inputs.  Here we find the first affiliate link on the page
